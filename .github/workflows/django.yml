@@ -25,6 +25,7 @@ jobs:
       run: |
         cd api/
         pwd
+        ls
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
