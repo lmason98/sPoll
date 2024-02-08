@@ -1,0 +1,14 @@
+# IDE
+.idea/
+
+# Docker
+.env
+.env.db
+
+# Backend
+.spollenv/
+__pycache__/
+
+# Frontend
+package-lock.json
+node_modules/
