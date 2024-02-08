@@ -27,9 +27,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run Tests
-      run: |
-        cd api/
-        python manage.py test
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         DEBUG: 1
@@ -41,3 +38,6 @@ jobs:
         SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
         SQL_HOST: ${{ secrets.SQL_HOST }}
         SQL_PORT: ${{ secrets.SQL_PORT }}
+      run: |
+        cd api/
+        python manage.py test
