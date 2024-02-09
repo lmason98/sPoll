@@ -28,5 +28,5 @@ jobs:
     - name: Azure CLI
       uses: azure/CLI@v1
       with:
-        inlineScript: az aks create -g ${{ env.resourceGroup }} -n ${{ env.name }} --kubernetes-version ${{ env.kubernetesVersion }} --generate-ssh-key --node-count ${{ env.nodeCount }} --node-size ${{ env.nodeSize }} 
+        inlineScript: az aks create -g ${{ env.resourceGroup }} -n ${{ env.name }} --kubernetes-version ${{ env.kubernetesVersion }} --generate-ssh-key --node-count ${{ env.nodeCount }} --node-vm-size ${{ env.nodeSize }} 
     
