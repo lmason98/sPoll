@@ -33,7 +33,7 @@ jobs:
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         DEBUG: 1
-        ALLOWED_HOSTS: "localhost", "127.0.0.1", "[::1]"
+        ALLOWED_HOSTS: "localhost,127.0.0.1,[::1]"
         CSRF_TRUSTED_ORIGINS: "http://localhost:8000"
         SQL_ENGINE: ${{ secrets.SQL_ENGINE }}
         SQL_DATABASE: ${{ secrets.SQL_DATABASE }}
