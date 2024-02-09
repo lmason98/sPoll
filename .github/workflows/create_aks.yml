@@ -5,7 +5,7 @@ env:
   name: 'spollAKS'
   kubernetesVersion: '1.29'
   nodeCount: 2
-  nodeSize: 'Standard_A2s'
+  nodeSize: 'standard_a2_v2'
 
 on:
   push:
