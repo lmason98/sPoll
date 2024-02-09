@@ -3,7 +3,7 @@
 
 # Docker
 .env
-.env.db
+.env.prod
 
 # Backend
 .spollenv/
