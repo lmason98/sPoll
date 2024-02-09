@@ -1,5 +1,17 @@
 name: Django CI
 
+env:
+  SECRET_KEY: ${{ secrets.SECRET_KEY }}
+  DEBUG: 1
+  ALLOWED_HOSTS: "localhost", "127.0.0.1", "[::1]"
+  CSRF_TRUSTED_ORIGINS: "http://localhost:8000"
+  SQL_ENGINE: ${{ secrets.SQL_ENGINE }}
+  SQL_DATABASE: ${{ secrets.SQL_DATABASE }}
+  SQL_USER: ${{ secrets.SQL_USER }}
+  SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
+  SQL_HOST: ${{ secrets.SQL_HOST }}
+  SQL_PORT: ${{ secrets.SQL_PORT }}
+
 on:
   push:
     branches: [ "main" ]
@@ -27,17 +39,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run Tests
-      env:
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        DEBUG: 1
-        ALLOWED_HOSTS: "localhost", "127.0.0.1", "[::1]"
-        CSRF_TRUSTED_ORIGINS: "http://localhost:8000"
-        SQL_ENGINE: ${{ secrets.SQL_ENGINE }}
-        SQL_DATABASE: ${{ secrets.SQL_DATABASE }}
-        SQL_USER: ${{ secrets.SQL_USER }}
-        SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
-        SQL_HOST: ${{ secrets.SQL_HOST }}
-        SQL_PORT: ${{ secrets.SQL_PORT }}
       run: |
         cd api/
         python manage.py test
