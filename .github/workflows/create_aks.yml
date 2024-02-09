@@ -18,13 +18,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  steps:
-  - name: Azure login
-    uses: azure/login@v1
-    with:
-      creds: ${{ secrets.AZURE_CREDENTIALS }}
-  - name: Azure CLI
-    uses: azure/CLI@v1
-    with:
-      inlineScript: az aks create -g ${{ env.resourceGroup }} -n ${{ env.name }} --kubernetes-version ${{ env.kubernetesVersion }} --generate-ssh-key
+    steps:
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Azure CLI
+      uses: azure/CLI@v1
+      with:
+        inlineScript: az aks create -g ${{ env.resourceGroup }} -n ${{ env.name }} --kubernetes-version ${{ env.kubernetesVersion }} --generate-ssh-key
     
