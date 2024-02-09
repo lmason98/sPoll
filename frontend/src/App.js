@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import { apiHelloWorld } from "./api/api";
+
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={apiHelloWorld}>Hello World</button>
       </header>
     </div>
   );
