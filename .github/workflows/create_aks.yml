@@ -4,7 +4,8 @@ env:
   resourceGroup: 'spoll'
   name: 'spollAKS'
   kubernetesVersion: '1.29'
-  nodeCount: 4
+  nodeCount: 2
+  vmSize: 'Standard_A2'
 
 on:
   push:
@@ -27,5 +28,5 @@ jobs:
     - name: Azure CLI
       uses: azure/CLI@v1
       with:
-        inlineScript: az aks create -g ${{ env.resourceGroup }} -n ${{ env.name }} --kubernetes-version ${{ env.kubernetesVersion }} --generate-ssh-key --node-count ${{ env.nodeCount }}
+        inlineScript: az aks create -g ${{ env.resourceGroup }} -n ${{ env.name }} --kubernetes-version ${{ env.kubernetesVersion }} --generate-ssh-key --master-vm-size ${{ env.vmSize }} --agent-count ${{ env.nodeCount }}
     
