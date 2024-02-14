@@ -37,7 +37,7 @@ jobs:
     - name: Set AKS Context
       uses: azure/aks-set-context@v3
       with:
-        resource-group: ${{ env.RESOURCE_GROUP }}
+        resource-group: ${{ env.PROJECT_NAME }}
         cluster-name: ${{ env.CLUSTER_NAME }}
 
     - name: Setup kubectl
