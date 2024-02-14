@@ -31,5 +31,5 @@ jobs:
     - run: |
         docker build -t ${{ env.REGISTRY_URL }}/api-${{ env.PROJECT_NAME }}:${{ github.sha }} ./api
         docker push ${{ env.REGISTRY_URL }}/api-${{ env.PROJECT_NAME }}:${{ github.sha }}
-        docker build -t ${{ env.REGISTRY_URL }}/front-${{ env.PROJECT_NAME }}:${{ github.sha }} -f ./nginx/Dockerfile.prod ./nginx
+        docker build -t ${{ env.REGISTRY_URL }}/front-${{ env.PROJECT_NAME }}:${{ github.sha }} -f ./nginx/Dockerfile.prod .
         docker push ${{ env.REGISTRY_URL }}/front-${{ env.PROJECT_NAME }}:${{ github.sha }}
