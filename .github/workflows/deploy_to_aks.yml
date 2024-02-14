@@ -25,7 +25,7 @@ jobs:
     - name: Build image on ACR
       uses: azure/docker-login@v1
       with:
-        login-server: ${{ env.AZURE_CONTAINER_REGISTRY }}
+        login-server: ${{ env.REGISTRY_URL }}
         username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
         password: ${{ secrets.AZURE_REGISTRY_USERNAME }}
     - run: |
