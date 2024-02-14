@@ -1,0 +1,31 @@
+name: Build to ACR and deploy to AKS
+
+env:
+  AZURE_CONTAINER_REGISTRY: spollcontainer
+  PROJECT_NAME: spoll
+  RESOURCE_GROUP: MC_spoll_spollAKS_eastus
+  CLUSTER_NAME: spollAKS
+  REGISTRY_URL: spollcontainer.azurecr.io
+
+on:
+  # Only allow to run manually
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Azure Login
+      uses: azure/login@14a755a4e2fd6dff25794233def4f2cf3f866955
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Build image on ACR
+      uses: azure/CLI@61bb69d64d613b52663984bf12d6bac8fd7b3cc8
+      with:
+        azcliversion: 2.29.1
+        inlineScript: |
+          az configure --defaults acr=${{ env.AZURE_CONTAINER_REGISTRY }}
+          az acr build -t  -t ${{ env.REGISTRY_URL }}/${{ env.PROJECT_NAME }}:${{ github.sha }}
