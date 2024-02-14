@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: lmasonspoll 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lmasonspoll
+  template:
+    metadata:
+      labels:
+        app: lmasonspoll 
+    spec:
+      containers:
+        - name: lmasonspoll 
+          image: spollcontainer.azurecr.io/lmasonspoll
+          ports:
+          - containerPort: 80
